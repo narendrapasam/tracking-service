@@ -21,7 +21,7 @@ In high-concurrency environments, repeatedly creating objects like `MessageDiges
 - There is **no shared mutable state** across threads
 - Performance is improved by **reusing** the same object within a thread
 
-In this service, `ThreadLocalRandom` is ideal for generating random secure codes (e.g., for tracking number suffixes) in a **concurrent and scalable** environment without performance penalties
+In this service, `ThreadLocalRandom` is ideal for generating random secure codes in a **concurrent and scalable** environment without performance penalties
 
 The fields are joined together using the pipe `|` character, converted to a `SHA-256` hash, and the first 16 characters of the resulting hexadecimal string are used as the tracking number.
 
@@ -30,14 +30,13 @@ The fields are joined together using the pipe `|` character, converted to a `SHA
 ## Example
 
 ### Input
-origin = "IN"
-destination = "US"
-weight = 12.345
-createdAt = ZonedDateTime.now()
-customerId = UUID.fromString("123e4567-e89b-12d3-a456-426614174000")
-customerName = "Test User"
-customerSlug = "test-user"
-
+origin_country_id = "US";
+destination_country_id = "IN";
+weight = 999.99;
+created_at = ZonedDateTime.parse("2025-06-11T20:45:00+08:00");
+customer_id = UUID.fromString("de619854-b59b-425e-9db4-943979e1bd49");
+customer_name = "RedBox Logistics";
+customer_slug = "redbox-logistics";
 
 ## API Links
 
